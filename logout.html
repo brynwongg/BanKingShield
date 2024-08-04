@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - BanKingShield</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Logout</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <p>You have been logged out. Redirecting to login page...</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 BanKingShield. All rights reserved.</p>
+    </footer>
+
+    <script>
+        
+        localStorage.removeItem('currentUser');
+        
+       
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 2000); 
+    </script>
+</body>
+</html>

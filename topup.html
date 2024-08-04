@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Up - BanKingShield</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Top Up Your Account</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="account.html">Account</a>
+            <a href="transfer.html">Transfer</a>
+            <a href="rewards.html">Rewards</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <form id="topupForm">
+            <label for="currency">Currency:</label>
+            <select id="currency" name="currency" required>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="SGD">SGD</option>
+                <option value="AUD">AUD</option>
+                <option value="JPY">JPY</option>
+                <option value="EUR">EUR</option>
+            </select>
+            
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required>
+            
+            <label for="mode">Mode of Top Up:</label>
+            <select id="mode" name="mode" required>
+                <option value="debit">Debit/Credit Card</option>
+                <option value="paynow">PayNow</option>
+            </select>
+            
+            <!-- Credit Card Fields (only visible when Debit/Credit Card is selected) -->
+            <div id="creditCardFields" style="display: none;">
+                <label for="cardNumber">Credit Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5">
+                
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3">
+            </div>
+
+            <label for="topupPassword">Password:</label>
+            <input type="password" id="topupPassword" name="topupPassword" required>
+            
+            <button type="submit">Top Up</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 BanKingShield. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // JavaScript to show/hide credit card fields based on selected mode
+        document.getElementById('mode').addEventListener('change', function() {
+            const mode = this.value;
+            const creditCardFields = document.getElementById('creditCardFields');
+            if (mode === 'debit') {
+                creditCardFields.style.display = 'block';
+            } else {
+                creditCardFields.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
